@@ -1,4 +1,5 @@
 from django.db import models
+from uuid import uuid4
 
 # Create your models here.
 
@@ -10,6 +11,12 @@ class Visitante(models.Model):
         ("EM_VISITA", "em vsita"),
         ("FINALIZADO", "Visita finalizada")
     ]
+
+    token = models.UUIDField(
+        default=uuid4,
+        editable=False,
+        unique=True
+    )
 
     status = models.CharField(
         verbose_name="Status",
