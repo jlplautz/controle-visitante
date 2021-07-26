@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-lOGIN_REDIRECT_URL = "/"
 
 # Dica para inserir todas as aplicaçoes em um unico diretorio.
 sys.path.append(os.path.join(BASE_DIR, "apps"))
@@ -47,7 +46,7 @@ INSTALLED_APPS += [
     'usuarios',
     'visitantes',
     'porteiros',
-    'apps.dashboard',
+    'dashboard',
     'widget_tweaks',
 ]
 
@@ -91,6 +90,7 @@ DATABASES = {
     }
 }
 
+STATICFILES_DIRS = [BASE_DIR / 'static']
 AUTH_USER_MODEL = "usuarios.Usuario"
 
 # Password validation
@@ -143,6 +143,5 @@ STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = "login"
-
-
-lOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = "index"

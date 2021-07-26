@@ -4,7 +4,7 @@ from django.urls import path
 # para redirecionar para a pagina de login
 from django.contrib.auth import views as auth_views
 
-from apps.dashboard.views import index
+from dashboard.views import index
 from visitantes.views import registrar_visitante, informacoes_visitante, finalizar_visita
 
 
