@@ -38,10 +38,10 @@ def registrar_visitante(request):
 
 
 @login_required
-def informacoes_visitante(request, id):
+def informacoes_visitante(request, token):
 
     # metodo get_object vai buscar o visitante pelo Id desejado
-    visitante = get_object_or_404(Visitante, id=id)
+    visitante = get_object_or_404(Visitante, token=token)
     morador = visitante.morador_responsavel
     print(morador)
 
@@ -76,10 +76,10 @@ def informacoes_visitante(request, id):
 
 
 @login_required
-def finalizar_visita(request, id):
+def finalizar_visita(request, token):
 
     if request.method == "POST":
-        visitante = get_object_or_404(Visitante, id=id)
+        visitante = get_object_or_404(Visitante, token=token)
 
         visitante.status = "FINALIZADO"
         visitante.horario_saida = timezone.now()
